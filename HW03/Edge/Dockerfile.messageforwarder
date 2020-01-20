@@ -1,0 +1,16 @@
+# Base OS as alpine
+FROM alpine
+
+RUN apk update
+# the default downloads python 2, so force to change to python 3
+RUN apk add python3
+RUN apk add py3-pip
+RUN apk add mosquitto-clients
+
+RUN pip3 install paho-mqtt
+
+WORKDIR /
+COPY messageforwarder.py . 
+
+CMD python messageforwarder.py
+

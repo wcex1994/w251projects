@@ -1,0 +1,10 @@
+
+# Base OS is alpine for Mosquitto
+FROM alpine
+
+RUN apk update
+RUN apk add mosquitto
+
+
+# Reference:https://stackoverflow.com/questions/38196774/cannot-start-mosquitto-as-service-on-docker-container
+CMD /usr/sbin/mosquitto
