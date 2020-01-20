@@ -1,0 +1,14 @@
+FROM ubuntu
+  
+RUN apt update
+
+ENV DEBIAN_FRONTEND = noninteractive
+
+RUN apt install -y python-opencv python-pip mosquitto-clients libopencv-dev
+RUN pip install paho-mqtt
+RUN pip install ibm-cos-sdk
+
+WORKDIR /
+COPY saveface2.py .
+
+#CMD python saveface.py
